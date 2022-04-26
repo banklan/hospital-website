@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin&family=IBM+Plex+Sans:wght@300&family=Montserrat:wght@300;400;500;600;700&family=Nunito:wght@300&family=Quicksand:wght@300;600&family=Source+Sans+Pro:wght@300;600&display=swap");
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    list-style: none;
+    outline: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+$primary: #480ca8;
+$primary-variant: #4cc9f0;
+$secondary: #f72585;
+$white: #fff;
+$light: rgba($white, 0.7);
+$black: #0c031b;
+$dark: rgba($black, 0.7);
+$success: #54eb72;
+$container-lg: 72%;
+$container-md: 90%;
+
+// h1{
+//     color: $secondary;
+//     font-size: 4.5em;
+//     font-weight: 300;
+// }

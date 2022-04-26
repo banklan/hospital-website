@@ -1,0 +1,135 @@
+nav{
+    width: 100vw;
+    height: 5rem;
+    position: fixed;
+    z-index: 10;
+    display: grid;
+    @include gradientBackground;
+    place-items: center;
+    box-shadow: 0 1rem 1rem rgba($black, 0.1);
+
+    // navbar styles on scroll using js
+    &.window-scroll{
+        background: $white;
+        .container{
+            button{
+                color: $black;
+            }
+            a{
+                color: $black;
+
+                & > h3{
+                    color: $black;
+                }
+                &.btn{
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        ul{
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+        //  buttons only needed in medium and small screesns
+        button{
+            display: none;
+        }
+        a{
+            color: $white;
+            font-weight: 400;
+            font-size: .9rem;
+        }
+        .nav__logo h3{
+            color: $white;
+        }
+    }
+}
+
+// *=================================MEDIA QUERIES (MEDIUM)================================*
+@media screen and (max-width: 1024px){
+    nav{
+        // navbar styles on scroll using js
+        &.window-scroll{
+            .container{
+                a{
+                    color: $white;
+                }
+            }
+        }
+        .container{
+            button{
+                display: inline-block;
+                background: transparent;
+                color:$white;
+                font-size: 1.5rem;
+                cursor: pointer;
+
+                &#close__nav-btn{
+                    display: none;
+                }
+            }
+            ul{
+                position: fixed;
+                right: 5%;
+                top: 5rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                display: none; //initially it doesnt show by default until clicked
+                perspective: 300px; //make it look far away from us by this distance
+
+                li{
+                    width: 100%;
+                    // animation while showing vertically on small devices
+                    opacity: 0;
+                    animation: flipNavBar .6s ease forwards;
+                    transform-origin: top;
+
+                    // delay the appearance of the li items
+                    &:nth-child(2){
+                        animation-delay: 200ms;
+                    }
+                    &:nth-child(3){
+                        animation-delay: 400ms;
+                    }
+                    &:nth-child(4){
+                        animation-delay: 600ms;
+                    }
+                    &:nth-child(5){
+                        animation-delay: 800ms;
+                    }
+
+                    @keyframes flipNavBar{
+                        0%{
+                            transform: rotateX(90deg);
+                        }
+                        100%{
+                            transform: rotateX(0deg);
+                            opacity: 1;
+                        }
+                    }
+
+                    a{
+                        color: $white;
+                        height: 100%;
+                        display: block;
+                        padding: 1.5rem 2rem;
+                        border-radius: 0;
+                        background: linear-gradient($primary-variant, darken($primary-variant, 12%));
+                        &.btn{
+                            background: $secondary;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
